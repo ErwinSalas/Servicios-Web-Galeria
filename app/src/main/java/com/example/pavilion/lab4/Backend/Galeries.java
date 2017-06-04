@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 public class Galeries {
     public ArrayList<Galery> galeries;
-    private static Galeries galeriesObject=null;
+    public static Galeries galeriesObject=null;
 
     public ArrayList<Galery> getGaleries() {
         return galeries;
@@ -20,7 +20,7 @@ public class Galeries {
     private Galeries() {
         galeries=new ArrayList<>();
     }
-    public static synchronized Galeries getInstance(){
+    public static  Galeries getInstance(){
         if (galeriesObject==null){
             galeriesObject=new Galeries();
         }
@@ -33,6 +33,10 @@ public class Galeries {
             }
         }
         return null;
+    }
+    public void addGalery(Galery photos){
+        galeries.add(photos);
+
     }
     public void update(Galery newUpdate){
         for(Galery item:galeries){

@@ -45,6 +45,7 @@ public class CreateActivity extends AppCompatActivity {
             photos=Galeries.getInstance().searchGalery(contryName);
             if (photos==null){
                 photos=new Galery(contryName,new ArrayList<Bitmap>());
+                Galeries.galeriesObject.addGalery(photos);
             }
             labelName.setText(contryName);
 
@@ -76,7 +77,7 @@ public class CreateActivity extends AppCompatActivity {
         this.finish();
     }
     public void updateGalery(){
-        Galeries.getInstance().update(photos);
+        Galeries.galeriesObject.update(photos);
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
